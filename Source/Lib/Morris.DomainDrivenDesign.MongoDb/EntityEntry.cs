@@ -28,7 +28,7 @@ public readonly struct EntityEntry<TKey> : IEquatable<EntityEntry<TKey>>
 	public override int GetHashCode() => Id.GetHashCode();
 	public bool Equals(EntityEntry<TKey> other) => Id.Equals(other.Id);
 	public override string ToString() =>
-		$"{Entity.GetType().FullName}:{Entity.Id}={State}";
+		$"{Entity.GetType().FullName}:{Id}:{State}";
 
 	public override bool Equals(object? obj)
 	{

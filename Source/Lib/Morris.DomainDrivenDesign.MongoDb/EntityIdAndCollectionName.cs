@@ -23,7 +23,7 @@ public readonly struct EntityIdAndCollectionName<TKey>
 	public override int GetHashCode() => CachedHashCode;
 
 	public override string ToString() =>
-		$"{CollectionName}={EntityId}";
+		$"{CollectionName}:{EntityId}";
 
 	public override bool Equals(object? obj)
 	{

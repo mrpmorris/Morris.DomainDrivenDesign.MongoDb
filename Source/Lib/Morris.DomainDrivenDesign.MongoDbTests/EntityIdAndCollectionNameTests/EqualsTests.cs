@@ -1,5 +1,4 @@
 ﻿using Morris.DomainDrivenDesign.MongoDb;
-using Morris.DomainDrivenDesign.MongoDbTests.TestDomain;
 
 namespace Morris.DomainDrivenDesign.MongoDbTests.EntityIdAndCollectionNameTests;
 

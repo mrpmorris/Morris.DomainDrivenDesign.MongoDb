@@ -18,7 +18,7 @@ public class ToStringTests
 		string expectedId = entity.Id.ToString();
 
 		Assert.Equal(
-			$"Morris.DomainDrivenDesign.MongoDbTests.TestDomain.SimpleEntity:{expectedId}=Created",
+			$"Morris.DomainDrivenDesign.MongoDbTests.TestDomain.SimpleEntity:X:{expectedId}:Created",
 			entry.ToString());
 	}
 }
