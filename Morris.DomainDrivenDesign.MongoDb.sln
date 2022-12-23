@@ -4,8 +4,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.4.33103.184
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{D3865884-1DC4-480B-BDFB-924F4250F5E7}"
+	ProjectSection(SolutionItems) = preProject
+		Source\Lib\Directory.Build.props = Source\Lib\Directory.Build.props
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Morris.DomainDrivenDesign.MongoDb", "Source\Lib\Morris.DomainDrivenDesign.MongoDb\Morris.DomainDrivenDesign.MongoDb.csproj", "{F4BB23CD-6C66-49A8-9262-8F0709BC3862}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{6F78B5D2-BECA-4AF4-9907-8FD09CB4A85B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{819DBB1D-ABA2-40A5-AF1C-435768D50BC8}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
