@@ -19,11 +19,15 @@ public abstract class DbContext<TDbContext, TKey>
 		MongoDatabase = CreateMongoDatabase();
 	}
 
-	protected virtual void ConfigureMongoClientSettings(MongoClientSettings mongoClientSettings)
+	protected virtual void ConfigureMongoClientSettings(
+		DbContextOptions<TDbContext, TKey> options,
+		MongoClientSettings mongoClientSettings)
 	{
 	}
 
-	protected virtual void ConfigureMongoDatabaseSettings(MongoDatabaseSettings mongoDatabaseSettings)
+	protected virtual void ConfigureMongoDatabaseSettings(
+		DbContextOptions<TDbContext, TKey> options,
+		MongoDatabaseSettings mongoDatabaseSettings)
 	{
 	}
 
@@ -32,14 +36,14 @@ public abstract class DbContext<TDbContext, TKey>
 	{
 		MongoClientSettings mongoClientSettings =
 			MongoClientSettings.FromConnectionString(Options.ConnectionString);
-		ConfigureMongoClientSettings(mongoClientSettings);
+		ConfigureMongoClientSettings(Options, mongoClientSettings);
 		return new MongoClient(mongoClientSettings);
 	}
 
 	private IMongoDatabase CreateMongoDatabase()
 	{
 		MongoDatabaseSettings mongoDatabaseSettings = new MongoDatabaseSettings();
-		ConfigureMongoDatabaseSettings(mongoDatabaseSettings);
+		ConfigureMongoDatabaseSettings(Options, mongoDatabaseSettings);
 		return MongoClient.GetDatabase(name: Options.DatabaseName, mongoDatabaseSettings);
 	}
 
