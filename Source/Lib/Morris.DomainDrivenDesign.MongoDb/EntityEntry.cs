@@ -3,10 +3,9 @@
 namespace Morris.DomainDrivenDesign.MongoDb;
 
 public readonly struct EntityEntry<TKey> : IEquatable<EntityEntry<TKey>>
-where
-	TKey: IEquatable<TKey>
+	where TKey: IEquatable<TKey>
 {
-	public string CollectionName { get; }
+	public EntityIdAndCollectionName<TKey> Id { get; }
 	public IAggregateRoot<TKey> Entity { get; }
 	public EntityState State { get; }
 	public int OriginalEntityConcurrencyVersion { get; }
@@ -17,7 +16,7 @@ where
 		EntityState state,
 		int originalEntityConcurrencyVersion)
 	{
-		CollectionName = collectionName;
+		Id = new EntityIdAndCollectionName<TKey>(entity.Id, collectionName);
 		Entity = entity;
 		State = state;
 		OriginalEntityConcurrencyVersion = originalEntityConcurrencyVersion;
@@ -26,6 +25,8 @@ where
 	public static bool operator ==(EntityEntry<TKey> a, EntityEntry<TKey> b) => a.Equals(b);
 	public static bool operator !=(EntityEntry<TKey> a, EntityEntry<TKey> b) => !a.Equals(b);
 
+	public override int GetHashCode() => Id.GetHashCode();
+	public bool Equals(EntityEntry<TKey> other) => Id.Equals(other.Id);
 	public override string ToString() =>
 		$"{Entity.GetType().FullName}:{Entity.Id}={State}";
 
@@ -35,9 +36,4 @@ where
 			return false;
 		return Equals(other);
 	}
-	public override int GetHashCode() => HashCode.Combine(Entity.Id, CollectionName);
-
-	public bool Equals(EntityEntry<TKey> other) =>
-		other.Entity.Id?.Equals(Entity.Id) == true
-		&& other.CollectionName == CollectionName;
 }

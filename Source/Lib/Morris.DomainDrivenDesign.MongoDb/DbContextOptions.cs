@@ -27,5 +27,4 @@ public class DbContextOptions<TDbContext, TKey> : IDbContextOptions<TDbContext, 
 		ConnectionString = connectionString;
 		DatabaseName = databaseName;
 	}
-
 }

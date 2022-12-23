@@ -46,5 +46,4 @@ public abstract class DbContext<TDbContext, TKey>
 		ConfigureMongoDatabaseSettings(Options, mongoDatabaseSettings);
 		return MongoClient.GetDatabase(name: Options.DatabaseName, mongoDatabaseSettings);
 	}
-
 }
