@@ -35,8 +35,9 @@ where
 			return false;
 		return Equals(other);
 	}
-	public override int GetHashCode() => Entity.Id.GetHashCode();
+	public override int GetHashCode() => HashCode.Combine(Entity.Id, CollectionName);
 
 	public bool Equals(EntityEntry<TKey> other) =>
-		other.Entity.Id?.Equals(Entity.Id) == true;
+		other.Entity.Id?.Equals(Entity.Id) == true
+		&& other.CollectionName == CollectionName;
 }
