@@ -1,17 +1,12 @@
 ﻿using Morris.DomainDrivenDesign.MongoDb;
 using Morris.DomainDrivenDesign.MongoDbTests.TestDomain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Morris.DomainDrivenDesign.MongoDbTests.EntityEntryTests;
 
 public class ToStringTests
 {
 	[Fact]
-	public void WhenExecuted_ThenShouldReturnAHumanReadibleString()
+	public void WhenExecuted_ThenReturnAsHumanReadibleString()
 	{
 		var entity = new SimpleEntity();
 		var entry = new EntityEntry<Guid>(

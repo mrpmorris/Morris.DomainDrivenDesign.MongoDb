@@ -6,7 +6,33 @@ namespace Morris.DomainDrivenDesign.MongoDbTests.EntityEntryTests;
 public class EqualsTests
 {
 	[Fact]
-	public void WhenIdentical_ThenShouldReturnTrue()
+	public void WhenComparedToNull_ThenReturnsFalse()
+	{
+		var entity = new SimpleEntity();
+		var entry = new EntityEntry<Guid>(
+			collectionName: "X",
+			entity: entity,
+			state: EntityState.Created,
+			originalEntityConcurrencyVersion: 1);
+
+		Assert.False(entry.Equals(null));
+	}
+
+	[Fact]
+	public void WhenComparedToADifferentType_ThenReturnsFalse()
+	{
+		var entity = new SimpleEntity();
+		var entry = new EntityEntry<Guid>(
+			collectionName: "X",
+			entity: entity,
+			state: EntityState.Created,
+			originalEntityConcurrencyVersion: 1);
+
+		Assert.False(entry.Equals("Eggs"));
+	}
+
+	[Fact]
+	public void WhenIdentical_ThenReturnsTrue()
 	{
 		var entity = new SimpleEntity();
 		var entry1 = new EntityEntry<Guid>(
@@ -25,7 +51,7 @@ public class EqualsTests
 	}
 
 	[Fact]
-	public void WhenReferencingDifferentEntityInstanceWithSameId_ThenShouldReturnTrue()
+	public void WhenReferencingDifferentEntityInstanceWithSameId_ThenReturnsTrue()
 	{
 		var entity1 = new SimpleEntity();
 		var entry1 = new EntityEntry<Guid>(
@@ -45,7 +71,7 @@ public class EqualsTests
 	}
 
 	[Fact]
-	public void WhenEntityIdIsDifferent_ThenShouldReturnFalse()
+	public void WhenEntityIdIsDifferent_ThenReturnsFalse()
 	{
 		var entity1 = new SimpleEntity();
 		var entry1 = new EntityEntry<Guid>(
@@ -65,7 +91,7 @@ public class EqualsTests
 	}
 
 	[Fact]
-	public void WhenCollectionNameIsDifferent_ThenShouldReturnFalse()
+	public void WhenCollectionNameIsDifferent_ThenReturnsFalse()
 	{
 		var entity = new SimpleEntity();
 		var entry1 = new EntityEntry<Guid>(
@@ -84,7 +110,7 @@ public class EqualsTests
 	}
 
 	[Fact]
-	public void WhenComparing_ThenShouldOnlyCompareEntityIdAndCollectionName()
+	public void WhenComparing_ThenOnlyComparesEntityIdAndCollectionName()
 	{
 		var entity1 = new SimpleEntity();
 		var entry1 = new EntityEntry<Guid>(

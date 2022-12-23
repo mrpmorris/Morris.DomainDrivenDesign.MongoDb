@@ -6,7 +6,7 @@ namespace Morris.DomainDrivenDesign.MongoDbTests.EntityEntryTests;
 public class GetHashCodeTests
 {
 	[Fact]
-	public void WhenEntityIdIsDifferent_ThenShouldReturnDifferentHashCode()
+	public void WhenEntityIdIsDifferent_ThenReturnsDifferentHashCode()
 	{
 		var entity1 = new SimpleEntity();
 		var entry1 = new EntityEntry<Guid>(
@@ -26,7 +26,7 @@ public class GetHashCodeTests
 	}
 
 	[Fact]
-	public void WhenCollectionNameIsDifferent_ThenShouldReturnDifferenceHashCode()
+	public void WhenCollectionNameIsDifferent_ThenReturnsDifferenceHashCode()
 	{
 		var entity = new SimpleEntity();
 		var entry1 = new EntityEntry<Guid>(
@@ -45,7 +45,7 @@ public class GetHashCodeTests
 	}
 
 	[Fact]
-	public void WhenExecuted_ThenShouldOnlyHashOnEntityIdAndCollectionName()
+	public void WhenExecuted_ThenOnlyHashesEntityIdAndCollectionName()
 	{
 		var entity1 = new SimpleEntity();
 		var entry1 = new EntityEntry<Guid>(
