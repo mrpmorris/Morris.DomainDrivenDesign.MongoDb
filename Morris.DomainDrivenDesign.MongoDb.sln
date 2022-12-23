@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33103.184
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{D3865884-1DC4-480B-BDFB-924F4250F5E7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Morris.DomainDrivenDesign.MongoDb", "Source\Lib\Morris.DomainDrivenDesign.MongoDb\Morris.DomainDrivenDesign.MongoDb.csproj", "{F4BB23CD-6C66-49A8-9262-8F0709BC3862}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4BB23CD-6C66-49A8-9262-8F0709BC3862}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4BB23CD-6C66-49A8-9262-8F0709BC3862}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4BB23CD-6C66-49A8-9262-8F0709BC3862}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4BB23CD-6C66-49A8-9262-8F0709BC3862}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F4BB23CD-6C66-49A8-9262-8F0709BC3862} = {D3865884-1DC4-480B-BDFB-924F4250F5E7}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D29DA7F0-9085-4883-9E0B-3EC8D08D2DB0}
+	EndGlobalSection
+EndGlobal

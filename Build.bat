@@ -1,0 +1,1 @@
+dotnet build Morris.DomainDrivenDesign.MongoDb.sln -c Release
